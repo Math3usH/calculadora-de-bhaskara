@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<title>BHASKARA</title>
+<style>
+    h1 {
+        text-align: center;
+    }
+    h1:hover{
+        font-size: 32.5px;
+    }
+
+    body {
+        background-color: rgba(44, 43, 43, 0.26);
+        height: 90%;
+     
+    }
+
+    form {
+        max-width: 300px;
+        margin: 20px auto;
+        padding: 30px;
+        margin-top: 145px;
+        border: 1px black solid;
+        border-radius: 10px;
+        background-color: rgba(0, 153, 255, 0.349);
+
+    }
+
+    input:hover{
+        background-color: rgba(131, 131, 131, 0.397);
+        text-decoration: dashed;
+    }
+    
+    input {
+        border: 1px;
+        border-radius: 3px;
+        border: none;
+        border-bottom: 2px solid black;
+    }
+
+    label {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-radius: 5px;
+    }
+    input:hover{
+        font-size: 15px;
+    }
+</style>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+
+    <script>
+
+        function click_calcular() {
+            let valorA = document.getElementById("txtValorA").value;
+            let valorB = document.getElementById("txtValorB").value;
+            let valorC = document.getElementById("txtValorC").value;
+            const delta = (valorB * valorB) - 4 * valorA * valorB
+            if (valorA == "") {
+                alert("Informe o valor de A");
+            }
+
+            else if (valorB == "") {
+                alert("Informe o valor B");
+            }
+            else if(valorC == ""){
+                alert("informe o valor C")
+            }
+            else if (delta < 0) {
+                alert("Não a raizes validas")
+            }
+            else {
+                const x1 = (-valorB + Math.sqrt(delta)) / (2 * valorA);
+                const x2 = (-valorB - Math.sqrt(delta)) / (2 * valorA);
+                document.getElementById("resultado").innerHTML = `o valor de x':${(x1).toFixed(2)} <br> o valor de x": ${(x2).toFixed(2)}`
+            }
+
+
+
+        }
+
+        function click_limpar() {
+            document.getElementById("txtValorA").value = "";
+            document.getElementById("txtValorB").value = "";
+            document.getElementById("txtValorC").value = "";
+            document.getElementById("resultado").innerHTML = "";
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    
+    <form>
+        <h1>Calculadora de Bhaskara</h1>
+        <div>
+            <label for="txtValorA">valor de A</label>
+            <br>
+            <input type="number" name="" id="txtValorA">
+        </div>
+        <br>
+        <div>
+            <label for="txtValorB">valor de B</label>
+            <br>
+            <input type="number" name="" id="txtValorB">
+        </div>
+        <br>
+        <div>
+            <label for="txtValorC">valor de C</label>
+            <br>
+            <input type="number" name="" id="txtValorC">
+        </div>
+        <br>
+        <div id="resultado">
+
+        </div>
+            <br>
+            <p></p>
+            <div id="botom" class="botom">
+                <input type="button" value="Calcular Bhaskara" onclick="click_calcular();">
+
+                <input type="button" value="Limpar formulario" onclick="click_limpar();">
+            </div>
+
+
+    </form>
+
+</body>
+
+</html>
